@@ -1,0 +1,58 @@
+/* Reset  */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    /* colors  */
+    --body-color: linear-gradient(to bottom, #DDDBD1, #D2DBDC);
+    --body-header-col:  #009688;
+
+    /* measures  */
+    --body-header-height: 70px;
+}
+
+/* Generics  */
+body{
+    font-family: 'Lato';
+    background: var(--body-color);
+    height: 100vh;
+}
+
+main{
+    position: absolute;
+    top: 30px;
+    right: 0;
+    left: 0;
+}
+
+
+/* Utils  */
+.container{
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+
+    /*! te be deleted  */
+    border: 1px solid red;
+}
+
+/* Body  */
+.body-header{
+    background-color: var(--body-header-col);
+    height: var(--body-header-height);
+}
+
+/* Main  */
+.contact-field{
+    height: 500px;
+    width: 25%;
+    background-color: rgb(183, 197, 192);
+}
+.message-field{
+    height: 500px;
+    width: 75%;
+    background-color: rgb(106, 121, 116);
+}

@@ -1,0 +1,35 @@
+Milestone 1
+
+Recreate the interface with the possibility of having messages written by the user (green) and by the correspondent (white),
+assigning two different CSS classes.
+Dynamic display of the contact list: using the v-for directive, display the name and image of each contact.
+
+1. Prepare the HTML CSS 
+    - Create a structure HTML & CSS:
+        <body> Direct childs:
+            <header> whith bg-color in body whith a height in px
+            <main position-absolute> direct childs:
+                <div container d-felx> direct childs:
+                    <div conctacts-field> direct childs:
+                        <header d-flex space-between> direct childs:
+                            <div left-side> dir childs:
+                                <img contact image> 
+                                <span contact name> 
+                            <div right-side> dir childs:
+                                <icons>
+
+                        <div notifications>
+                        <input search >
+                        <ul>
+                            <li Contact in contacts>
+                    <div message-field> direct childs:
+                        <header d-flex space-between> direct childs:
+                                <div left-side> dir childs:
+                                    <img contact image> 
+                                    <div prof-info > dir ch
+                                        <p contact name> 
+                                        <p last-seen> 
+
+                                <div right-side> dir childs:
+                                    <icons>
+                            
