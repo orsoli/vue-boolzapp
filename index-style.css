@@ -12,10 +12,29 @@
     --app-header-col:  #EAEAEA;
     --app-footer-col: #F3EEEA;
     --subinfo-col: #B7B7BA;
+    --sended-msg-col: #D5F9BA;
+    --recieved-msg-col: #ffffff;
 
-    /* measures  */
+    /* --measures--  */
+    /* Height  */
     --body-header-height: 70px;
     --app-header-height: 50px;
+
+    /* padding  */
+    --padding-sm: 10px;
+    --padding-md: 20px;
+    --padding-lg: 30px;
+    --padding-xlg: 50px;
+
+    /* margin  */
+    --margin-sm: 10px;
+    --margin-md: 20px;
+    --margin-lg: 30px;
+
+    /* gap  */
+    --gap-sm: 5px;
+    --gap-md: 10px;
+    --gap-lg: 20px;
 
     /* Font size  */
     --fs-sm: 10px;
@@ -55,6 +74,12 @@ i{
     font-size: var(--fs-md);
 }
 
+ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+}
+
 
 /* Utils  */
 .container{
@@ -77,7 +102,7 @@ i{
     align-items: center;
     background-color: var(--app-header-col);
     height: var(--app-header-height) ;
-    padding: 10px;
+    padding: var(--padding-sm);
 }
 
 .contact-field{
@@ -92,13 +117,13 @@ i{
 .container header .left-side{
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: var(--gap-md);
 }
 
 .container header .right-side{
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: var(--gap-md);
 }
 
 .profile-img{
@@ -114,6 +139,30 @@ i{
 .chat-body{
     background-image: url('./img/mine.png');
     flex-grow: 1;
+    padding: var(--padding-lg) var(--padding-xlg);
+    overflow-x: scroll;
+}
+
+.msg{
+    width: 40%;
+    border-radius: 5px;
+    margin-bottom: var(--margin-sm);
+    padding: var(--padding-sm) 2px 2px var(--padding-sm);
+}
+
+.msg.sended{
+    background-color: var(--sended-msg-col);
+    align-self: flex-end;
+}
+
+.msg.recieved{
+    background-color: var(--recieved-msg-col);
+}
+
+.time{
+    color: var(--subinfo-col);
+    font-size: var(--fs-sm);
+    text-align: end;
 }
 
 /* Footer  */
@@ -129,5 +178,5 @@ i{
     width: 70%;
     height: 60%;
     border: 0;
-    padding: 10px;
+    padding: var(--gap-md);
 }
