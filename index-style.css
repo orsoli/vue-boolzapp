@@ -9,9 +9,18 @@
     /* colors  */
     --body-color: linear-gradient(to bottom, #DDDBD1, #D2DBDC);
     --body-header-col:  #009688;
+    --app-header-col:  #EAEAEA;
+    --app-footer-col: #F3EEEA;
+    --subinfo-col: #B7B7BA;
 
     /* measures  */
     --body-header-height: 70px;
+    --app-header-height: 50px;
+
+    /* Font size  */
+    --fs-sm: 10px;
+    --fs-md: 12px;
+    --fs-lg: 20px;
 }
 
 /* Generics  */
@@ -28,15 +37,31 @@ main{
     left: 0;
 }
 
+img{
+    max-width: 100%;
+}
+
+aside{
+    border-right: 1px solid #DFDFDF;
+    background-color: white;
+}
+
+p{
+    font-size: var(--fs-md) ;
+}
+
+i{
+    filter: invert(50%);
+    font-size: var(--fs-md);
+}
+
 
 /* Utils  */
 .container{
     display: flex;
     width: 70%;
+    height: 500px;
     margin: 0 auto;
-
-    /*! te be deleted  */
-    border: 1px solid red;
 }
 
 /* Body  */
@@ -46,13 +71,63 @@ main{
 }
 
 /* Main  */
-.contact-field{
-    height: 500px;
-    width: 25%;
-    background-color: rgb(183, 197, 192);
+.container header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--app-header-col);
+    height: var(--app-header-height) ;
+    padding: 10px;
 }
-.message-field{
-    height: 500px;
-    width: 75%;
-    background-color: rgb(106, 121, 116);
+
+.contact-field{
+    width: 30%;
+}
+.chat-field{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+.container header .left-side{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.container header .right-side{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-img{
+    height: 30px;
+    border-radius: 50%;
+}
+
+.subinfo{
+    color: var(--subinfo-col);
+}
+
+/* Chat body  */
+.chat-body{
+    background-image: url('./img/mine.png');
+    flex-grow: 1;
+}
+
+/* Footer  */
+.container footer{
+    height: var(--app-header-height) ;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--app-footer-col);
+}
+
+#message-input{
+    width: 70%;
+    height: 60%;
+    border: 0;
+    padding: 10px;
 }

@@ -32,4 +32,12 @@ Dynamic display of the contact list: using the v-for directive, display the name
 
                                 <div right-side> dir childs:
                                     <icons>
+
+                        <div chat-body flex-grow1 img background cover>
+
+                        <Footer chat height in px footer> dir child:
+                            <icon emoij>
+                            <input text msg>
+                            <icon voice msg>
+
                             
