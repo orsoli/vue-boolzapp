@@ -14,6 +14,7 @@
     --subinfo-col: #B7B7BA;
     --sended-msg-col: #D5F9BA;
     --recieved-msg-col: #ffffff;
+    --notification-bg-col: #8DDAFC;
 
     /* --measures--  */
     /* Height  */
@@ -80,13 +81,23 @@ ul{
     flex-direction: column;
 }
 
+input{
+    border: 0;
+    border-radius: 5px;
+}
+
 
 /* Utils  */
 .container{
     display: flex;
-    width: 70%;
+    width: 80vw;
     height: 500px;
     margin: 0 auto;
+}
+
+.left-side{
+    display: flex;
+    gap: var(--gap-sm);
 }
 
 /* Body  */
@@ -105,9 +116,79 @@ ul{
     padding: var(--padding-sm);
 }
 
+/* Contact field  */
 .contact-field{
+    display: flex;
+    flex-direction: column;
     width: 30%;
+    height: 100%;
+    background-color: var(--app-header-col);
 }
+
+.desktop-notifications{
+    display: flex;
+    align-items: center;
+    background-color: var(--notification-bg-col);
+    padding: var(--padding-sm);
+}
+
+.notification-icon{
+    background-color: white;
+    font-size: var(--fs-sm);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-right: var(--margin-sm);
+}  
+
+.notification-icon i{
+    -webkit-text-fill-color: var(--notification-bg-col);
+    filter: invert(0);
+}
+
+.desktop-notifications p{
+    font-size: var(--fs-sm);
+}
+
+.desktop-notifications a{
+    color: gray;
+}
+
+.search-chats{
+    background-color: white;
+    border-radius: 5px;
+    margin: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.search-chats input{
+    width: 80%;
+    height: 30px;
+    padding: 5px;
+}
+
+.contacts-chat{
+    flex-grow: 1;
+    background-color: white;
+    overflow: scroll;
+}
+
+.contacts-chat li{
+    display: flex;
+    justify-content: space-between;
+    padding: var(--padding-sm);
+}
+
+.contacts-chat .left-side{
+    align-items: flex-start;
+}
+
+/* Chat field  */
 .chat-field{
     display: flex;
     flex-direction: column;
@@ -115,9 +196,7 @@ ul{
 }
 
 .container header .left-side{
-    display: flex;
     align-items: center;
-    gap: var(--gap-md);
 }
 
 .container header .right-side{
@@ -133,6 +212,7 @@ ul{
 
 .subinfo{
     color: var(--subinfo-col);
+    font-size: var(--fs-sm);
 }
 
 /* Chat body  */
@@ -165,7 +245,7 @@ ul{
     text-align: end;
 }
 
-/* Footer  */
+/* chat Footer  */
 .container footer{
     height: var(--app-header-height) ;
     display: flex;
@@ -176,7 +256,7 @@ ul{
 
 #message-input{
     width: 70%;
-    height: 60%;
+    height: 70%;
     border: 0;
     padding: var(--gap-md);
 }

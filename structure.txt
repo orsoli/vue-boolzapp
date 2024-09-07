@@ -22,6 +22,7 @@ Dynamic display of the contact list: using the v-for directive, display the name
                         <input search >
                         <ul>
                             <li Contact in contacts>
+
                     <div message-field> direct childs:
                         <header d-flex space-between> direct childs:
                                 <div left-side> dir childs:
@@ -39,9 +40,11 @@ Dynamic display of the contact list: using the v-for directive, display the name
                                 <p message text>
                                 <p time>
 
-                        <Footer chat height in px footer> dir child:
+                        <Footer chat height in px footer space around> dir child:
                             <icon emoij>
                             <input text msg>
                             <icon voice msg>
+
+2. 
 
                             
