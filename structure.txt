@@ -45,6 +45,8 @@ Dynamic display of the contact list: using the v-for directive, display the name
                             <input text msg>
                             <icon voice msg>
 
-2. 
+2. Prepare Vue js
+    - Added data in app instance
+    - Link Dom by directiove v-for to create a dynamic list of contact chats
 
                             

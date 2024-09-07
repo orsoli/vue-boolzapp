@@ -73,91 +73,11 @@
                 <div class="contacts-chat">
                     <!-- Chats list  -->
                     <ul>
-                        <li>
+                        <li v-for="(contact,i) in contacts">
                             <div class="left-side">
-                                <img src="./img/avatar_2.png" alt="avatar1" class="profile-img">
+                                <img :src="contact.avatar" :alt="'avatar-'+(i+1)" class="profile-img">
                                 <div>
-                                    <p>Name</p>
-                                    <p class="subinfo">Last message</p>
-                                </div>
-                            </div>
-                            <p class="subinfo">12:00</p>
-                        </li>
-                        <li>
-                            <div class="left-side">
-                                <img src="./img/avatar_2.png" alt="avatar1" class="profile-img">
-                                <div>
-                                    <p>Name</p>
-                                    <p class="subinfo">Last message</p>
-                                </div>
-                            </div>
-                            <p class="subinfo">12:00</p>
-                        </li>
-                        <li>
-                            <div class="left-side">
-                                <img src="./img/avatar_2.png" alt="avatar1" class="profile-img">
-                                <div>
-                                    <p>Name</p>
-                                    <p class="subinfo">Last message</p>
-                                </div>
-                            </div>
-                            <p class="subinfo">12:00</p>
-                        </li>
-                        <li>
-                            <div class="left-side">
-                                <img src="./img/avatar_2.png" alt="avatar1" class="profile-img">
-                                <div>
-                                    <p>Name</p>
-                                    <p class="subinfo">Last message</p>
-                                </div>
-                            </div>
-                            <p class="subinfo">12:00</p>
-                        </li>
-                        <li>
-                            <div class="left-side">
-                                <img src="./img/avatar_2.png" alt="avatar1" class="profile-img">
-                                <div>
-                                    <p>Name</p>
-                                    <p class="subinfo">Last message</p>
-                                </div>
-                            </div>
-                            <p class="subinfo">12:00</p>
-                        </li>
-                        <li>
-                            <div class="left-side">
-                                <img src="./img/avatar_2.png" alt="avatar1" class="profile-img">
-                                <div>
-                                    <p>Name</p>
-                                    <p class="subinfo">Last message</p>
-                                </div>
-                            </div>
-                            <p class="subinfo">12:00</p>
-                        </li>
-                        <li>
-                            <div class="left-side">
-                                <img src="./img/avatar_2.png" alt="avatar1" class="profile-img">
-                                <div>
-                                    <p>Name</p>
-                                    <p class="subinfo">Last message</p>
-                                </div>
-                            </div>
-                            <p class="subinfo">12:00</p>
-                        </li>
-                        <li>
-                            <div class="left-side">
-                                <img src="./img/avatar_2.png" alt="avatar1" class="profile-img">
-                                <div>
-                                    <p>Name</p>
-                                    <p class="subinfo">Last message</p>
-                                </div>
-                            </div>
-                            <p class="subinfo">12:00</p>
-                        </li>
-                        <li>
-                            <div class="left-side">
-                                <img src="./img/avatar_2.png" alt="avatar1" class="profile-img">
-                                <div>
-                                    <p>Name</p>
+                                    <p> {{contact.name}} </p>
                                     <p class="subinfo">Last message</p>
                                 </div>
                             </div>
