@@ -91,8 +91,8 @@
                 <!-- Chat field header  -->
                 <header>
                     <!-- Header chat profile info  -->
-                    <div class="left-side" v-for="contact in visibleContacts">
-                        <img src="img/avatar_1.png" alt="" class="profile-img">
+                    <div class="left-side" v-for="(contact,i) in visibleContacts">
+                        <img :src="contact.avatar" :alt="'avatar-'+(i+1)" class="profile-img">
                         <div>
                             <p> {{contact.name}} </p>
                             <p class="subinfo">Last seen today at {{contact.messages[contact.messages.length-1].date}}
