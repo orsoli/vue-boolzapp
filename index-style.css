@@ -15,6 +15,7 @@
     --sended-msg-col: #D5F9BA;
     --recieved-msg-col: #ffffff;
     --notification-bg-col: #8DDAFC;
+    --active-chat-col: #EAEBEB;
 
     /* --measures--  */
     /* Height  */
@@ -100,6 +101,10 @@ input{
     gap: var(--gap-sm);
 }
 
+.active{
+    background-color: var(--active-chat-col);
+}
+
 /* Body  */
 .body-header{
     background-color: var(--body-header-col);
@@ -182,6 +187,7 @@ input{
     display: flex;
     justify-content: space-between;
     padding: var(--padding-sm);
+    cursor: pointer;
 }
 
 .contacts-chat .left-side{
@@ -230,12 +236,12 @@ input{
     padding: var(--padding-sm) 2px 2px var(--padding-sm);
 }
 
-.msg.sended{
+.msg.sent{
     background-color: var(--sended-msg-col);
     align-self: flex-end;
 }
 
-.msg.recieved{
+.msg.received{
     background-color: var(--recieved-msg-col);
 }
 

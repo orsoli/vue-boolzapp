@@ -2,9 +2,11 @@
 const { createApp } = Vue;
 // Create an instance app of vue app
 createApp({
-  // Create variables
   data() {
     return {
+      // Variables
+      currentMessageInfo: null, // Current messages info variable
+
       contacts: [
         {
           name: "Michele",
@@ -170,7 +172,36 @@ createApp({
       ],
     };
   },
+
+  // Computed component
+  computed: {
+    visibleContacts() {
+      return this.contacts.filter((contact) => contact.visible); // Filter method to return only visible contacts
+    },
+  },
+
+  // Methods component
+  methods: {
+    // Funtction to add object in currentMessageInfo if visibile
+    isVisible() {
+      this.contacts.filter((contact) => {
+        if (contact.visible) {
+          this.currentMessageInfo = contact.messages;
+        }
+      });
+    },
+    // OnClick function
+    onClick(i) {
+      this.contacts.forEach((contact) => (contact.visible = false)); // Change in false for all contact visible value befaore click
+      this.contacts[i].visible = !this.contacts[i].visible; // Invert the visible value boolean
+      this.isVisible(); // Call back isVisible function to re-define the currentMessageInfo variable
+    },
+  },
+
+  // Use mounted lifecycle hook
   mounted() {
-    console.log(this.contacts[0].name); // Testing print
+    const contactsNoFirst = this.contacts.slice(1, this.contacts.length); // Create a copy of contacts excluded the first contact
+    contactsNoFirst.forEach((contact) => (contact.visible = false)); // Flag Visible = fals after mount
+    this.isVisible(); // Call the isVisible function to re-define the current message
   },
 }).mount("#app");

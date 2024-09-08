@@ -4,49 +4,92 @@ Recreate the interface with the possibility of having messages written by the us
 assigning two different CSS classes.
 Dynamic display of the contact list: using the v-for directive, display the name and image of each contact.
 
-1. Prepare the HTML CSS 
-    - Create a structure HTML & CSS:
-        <body> Direct childs:
-            <header> whith bg-color in body whith a height in px
-            <main position-absolute> direct childs:
-                <div container d-felx> direct childs:
-                    <div conctacts-field> direct childs:
-                        <header d-flex space-between> direct childs:
-                            <div left-side> dir childs:
-                                <img contact image> 
-                                <span contact name> 
-                            <div right-side> dir childs:
-                                <icons>
-
-                        <div notifications>
-                        <input search >
-                        <ul>
-                            <li Contact in contacts>
-
-                    <div message-field> direct childs:
-                        <header d-flex space-between> direct childs:
+    1. Prepare the HTML CSS 
+        - Create a structure HTML & CSS:
+            <body> Direct childs:
+                <header> whith bg-color in body whith a height in px
+                <main position-absolute> direct childs:
+                    <div container d-felx> direct childs:
+                        <div conctacts-field> direct childs:
+                            <header d-flex space-between> direct childs:
                                 <div left-side> dir childs:
                                     <img contact image> 
-                                    <div prof-info > dir ch
-                                        <p contact name> 
-                                        <p last-seen> 
-
+                                    <span contact name> 
                                 <div right-side> dir childs:
                                     <icons>
 
-                        <div chat-body flex-grow1 img background cover> dir child:
+                            <div notifications>
+                            <input search >
                             <ul>
-                                <li sended or recieved msg>
-                                <p message text>
-                                <p time>
+                                <li Contact in contacts>
 
-                        <Footer chat height in px footer space around> dir child:
-                            <icon emoij>
-                            <input text msg>
-                            <icon voice msg>
+                        <div message-field> direct childs:
+                            <header d-flex space-between> direct childs:
+                                    <div left-side> dir childs:
+                                        <img contact image> 
+                                        <div prof-info > dir ch
+                                            <p contact name> 
+                                            <p last-seen> 
 
-2. Prepare Vue js
-    - Added data in app instance
-    - Link Dom by directiove v-for to create a dynamic list of contact chats
+                                    <div right-side> dir childs:
+                                        <icons>
+
+                            <div chat-body flex-grow1 img background cover> dir child:
+                                <ul>
+                                    <li sended or recieved msg>
+                                    <p message text>
+                                    <p time>
+
+                            <Footer chat height in px footer space around> dir child:
+                                <icon emoij>
+                                <input text msg>
+                                <icon voice msg>
+
+    2. Prepare Vue js
+        - Added data in app instance
+        - Link Dom by directiove v-for to create a dynamic list of contact chats
+
+
+Milestone 2
+
+Dynamic display of messages: using the v-for directive, 
+display all messages related to the active contact within the conversation panel.
+Clicking on a contact shows the conversation of the clicked contact.
+
+
+    1. Create a object variables to save current messages info
+    2. Use mounted lifecycle hook to chenge the value of visible Bool after is mounted in DOM and to update the last info messages
+    3. IN methods component define a isVisible call back function to get the initial value on current message and also define 'onClick' 
+        callback arrow function before change in false visible value
+        and to invert the visible bool value to remove all active class and add active class in clecked element.
+        Also add  info in currentMessagesInfo object by calling back is visible function
+    4. In contact chat element in DOM add @click directive and :(v-bind) in class attribute to add active class
+       if the visible is true
+    5. In chat body li element add v-if directive to show the messages if the visible is true and add a class
+        based on status message.
+    6. Use computed component to create a filter method returnig viible contact from contacts list
+    7. In the header of chat field use v-for in visibleContacts  directive to add profile foto ,name and last seen
+    8. In mounted component Use a slice() method to create a copy array contacts excluded the firts contacts
+
+
+
+Milestone 3
+
+Adding a message: the user writes a text at the bottom, and by pressing "enter", 
+the text is added to the thread above as a green message.
+Reply from the correspondent: for each added message, the user will receive an "ok" as a response, 
+which will appear after 1 second.
+
+
+Milestone 4
+
+User search: by typing something in the input on the left, only the contacts whose name contains the entered 
+letters are displayed (e.g., Marco, Matteo, Martina -> type "mar", only Marco and Martina remain).
+
+
+Milestone 5 - Optional
+
+Delete message: clicking on a message shows a dropdown menu that allows deleting the selected message.
+Display the time and the last sent/received message in the contact list.
 
                             
