@@ -81,8 +81,11 @@ Reply from the correspondent: for each added message, the user will receive an "
 which will appear after 1 second.
 
     1. Create a variable sentMessage and link by v-model directive with user message input element in DOM
-    2. Define a function onSentMessage pushing at last a new object in messages object array geting new sentMessage value
-    3. Clear the input message field
+    2. Define a function pushing at last a new object in messages object array
+    3. Define function onSent when sent message 
+        - call back function to add sent message object in messages array
+        - clear the sentMessage variable
+        - after 1 sec call back to add in messages array recived message
 
 
 Milestone 4

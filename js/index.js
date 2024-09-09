@@ -7,6 +7,12 @@ createApp({
       // Variables
       currentMessageInfo: null, // Current messages info variable
       sentMessage: "", // Save sent Message get from input
+      // Save auto recieve message
+      receivedMessage: {
+        date: "09/09/2024 11:31",
+        message: "ok", // Geting new sent message
+        status: "received",
+      },
 
       contacts: [
         {
@@ -180,7 +186,6 @@ createApp({
       return this.contacts.filter((contact) => contact.visible); // Filter method to return only visible contacts
     },
   },
-
   // Methods component
   methods: {
     // Funtction to add object in currentMessageInfo if visibile
@@ -199,23 +204,35 @@ createApp({
       this.isVisible(); // Call back isVisible function to re-define the currentMessageInfo variable
     },
 
-    // Define function to push in masseges array a new object whith new sentMessage value
+    // Define function to push in masseges array a new object
+    addMessage(object) {
+      this.contacts.filter((contact) => {
+        // Get the contact visible
+        if (contact.visible)
+          // Push new object whith new message
+          contact.messages.push(object);
+      });
+    },
+
     onSentMessage() {
       // Validation condition
       if (this.sentMessage) {
-        this.contacts.filter((contact) => {
-          // Get the contact visible
-          if (contact.visible)
-            // Push new object whith new message
-            contact.messages.push({
-              date: "09/09/2024 11:30",
-              message: this.sentMessage, // Geting new sent message
-              status: "sent",
-            });
+        // Call back addMessage function to add sent message
+        this.addMessage({
+          date: "09/09/2024 11:30",
+          message: this.sentMessage, // Geting new sent message
+          status: "sent",
         });
       }
 
       this.sentMessage = ""; // Clear input message
+
+      // Define a timeout function to receive a message in 1 sec delay
+      setTimeout(() => {
+        console.log(this.receivedMessage); // Testing print
+        // Call back addMessage function to add sent message
+        this.addMessage(this.receivedMessage);
+      }, 1000);
     },
   },
 
