@@ -119,7 +119,8 @@
                 <!-- Footer  -->
                 <footer>
                     <i class="far fa-smile"></i>
-                    <input type="text" placeholder="Message" id="message-input">
+                    <input type="text" placeholder="Message" id="message-input" v-model="sentMessage"
+                        @keyup.enter="onSentMessage">
                     <i class="fas fa-microphone"></i>
                 </footer>
             </div>

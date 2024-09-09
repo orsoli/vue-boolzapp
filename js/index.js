@@ -6,6 +6,7 @@ createApp({
     return {
       // Variables
       currentMessageInfo: null, // Current messages info variable
+      sentMessage: "", // Save sent Message get from input
 
       contacts: [
         {
@@ -190,11 +191,31 @@ createApp({
         }
       });
     },
+
     // OnClick function
     onClick(i) {
       this.contacts.forEach((contact) => (contact.visible = false)); // Change in false for all contact visible value befaore click
       this.contacts[i].visible = !this.contacts[i].visible; // Invert the visible value boolean
       this.isVisible(); // Call back isVisible function to re-define the currentMessageInfo variable
+    },
+
+    // Define function to push in masseges array a new object whith new sentMessage value
+    onSentMessage() {
+      // Validation condition
+      if (this.sentMessage) {
+        this.contacts.filter((contact) => {
+          // Get the contact visible
+          if (contact.visible)
+            // Push new object whith new message
+            contact.messages.push({
+              date: "09/09/2024 11:30",
+              message: this.sentMessage, // Geting new sent message
+              status: "sent",
+            });
+        });
+      }
+
+      this.sentMessage = ""; // Clear input message
     },
   },
 

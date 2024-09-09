@@ -7,7 +7,7 @@
 
 :root{
     /* colors  */
-    --body-color: linear-gradient(to bottom, #DDDBD1, #D2DBDC);
+    --body-color: linear-gradient(#DDDBD1, #D2DBDC);
     --body-header-col:  #009688;
     --app-header-col:  #EAEAEA;
     --app-footer-col: #F3EEEA;
@@ -16,6 +16,7 @@
     --recieved-msg-col: #ffffff;
     --notification-bg-col: #8DDAFC;
     --active-chat-col: #EAEBEB;
+    --hover-chat-col: #EAEBEB;
 
     /* --measures--  */
     /* Height  */
@@ -188,6 +189,10 @@ input{
     justify-content: space-between;
     padding: var(--padding-sm);
     cursor: pointer;
+}
+
+.contacts-chat li:hover{
+    background-color: var(--hover-chat-col);
 }
 
 .contacts-chat .left-side{

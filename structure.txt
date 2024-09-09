@@ -80,6 +80,10 @@ the text is added to the thread above as a green message.
 Reply from the correspondent: for each added message, the user will receive an "ok" as a response, 
 which will appear after 1 second.
 
+    1. Create a variable sentMessage and link by v-model directive with user message input element in DOM
+    2. Define a function onSentMessage pushing at last a new object in messages object array geting new sentMessage value
+    3. Clear the input message field
+
 
 Milestone 4
 
