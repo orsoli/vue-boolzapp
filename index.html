@@ -95,7 +95,7 @@
                         <img :src="contact.avatar" :alt="'avatar-'+(i+1)" class="profile-img">
                         <div>
                             <p> {{contact.name}} </p>
-                            <p class="subinfo">Last seen today at {{contact.messages[contact.messages.length-1].date}}
+                            <p class="subinfo">Last seen at {{contact.messages[contact.messages.length-1].date}}
                             </p>
                         </div>
                     </div>
@@ -128,6 +128,9 @@
 
     </main>
 
+
+    <!-- Luxon script  -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.5.0/build/global/luxon.min.js"></script>
     <!-- Veu Scripts  -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 

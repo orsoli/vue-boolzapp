@@ -1,5 +1,4 @@
-// Destructuring createApp from vue
-const { createApp } = Vue;
+const { createApp } = Vue; // Import createApp from vue
 // Create an instance app of vue app
 createApp({
   data() {
@@ -9,7 +8,7 @@ createApp({
       sentMessage: "", // Save sent Message get from input
       // Save auto recieve message
       receivedMessage: {
-        date: "09/09/2024 11:31",
+        date: this.getCurrentTime(),
         message: "ok", // Geting new sent message
         status: "received",
       },
@@ -188,6 +187,11 @@ createApp({
   },
   // Methods component
   methods: {
+    // Get the current time from luxon
+    getCurrentTime() {
+      const DateTime = luxon.DateTime; // Current date and time
+      return DateTime.now().toFormat("HH:mm"); // Return only current time
+    },
     // Funtction to add object in currentMessageInfo if visibile
     isVisible() {
       this.contacts.filter((contact) => {
@@ -219,7 +223,7 @@ createApp({
       if (this.sentMessage) {
         // Call back addMessage function to add sent message
         this.addMessage({
-          date: "09/09/2024 11:30",
+          date: this.getCurrentTime(),
           message: this.sentMessage, // Geting new sent message
           status: "sent",
         });

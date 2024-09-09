@@ -87,11 +87,14 @@ which will appear after 1 second.
         - clear the sentMessage variable
         - after 1 sec call back to add in messages array recived message
 
+    - Import dateTime from Luxon library
+    - Get current dateTime
 
 Milestone 4
 
 User search: by typing something in the input on the left, only the contacts whose name contains the entered 
 letters are displayed (e.g., Marco, Matteo, Martina -> type "mar", only Marco and Martina remain).
+
 
 
 Milestone 5 - Optional
