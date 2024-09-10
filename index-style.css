@@ -17,6 +17,7 @@
     --notification-bg-col: #8DDAFC;
     --active-chat-col: #EAEBEB;
     --hover-chat-col: #EAEBEB;
+    --message-box-shadow-col:rgb(161, 161, 161);
 
     /* --measures--  */
     /* Height  */
@@ -126,7 +127,7 @@ input{
 .contact-field{
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 300px;
     height: 100%;
     background-color: var(--app-header-col);
 }
@@ -201,7 +202,10 @@ input{
 
 /* Chat field  */
 .chat-initial{
-    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
     height: 100%;
     background-image: url('img/image-chat.webp');
     background-size: cover;
@@ -209,7 +213,7 @@ input{
 .chat-field{
     display: flex;
     flex-direction: column;
-    width: 70%;
+    flex-grow: 1;
 }
 
 .container header .left-side{
@@ -241,19 +245,23 @@ input{
 }
 
 .msg{
-    width: 40%;
-    border-radius: 5px;
     margin-bottom: var(--margin-sm);
-    padding: var(--padding-sm) 2px 2px var(--padding-sm);
+    padding: var(--padding-sm) 5px 2px var(--padding-sm);
+    box-shadow: 0 0 5px var(--message-box-shadow-col);
+    
 }
 
+
 .msg.sent{
+    border-radius: 10px 0 10px 10px;
     background-color: var(--sended-msg-col);
     align-self: flex-end;
 }
 
 .msg.received{
+    border-radius: 0 10px 10px 10px;
     background-color: var(--recieved-msg-col);
+    align-self: flex-start;
 }
 
 .time{
