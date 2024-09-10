@@ -210,7 +210,7 @@ createApp({
       const clickedContact = this.contacts.find((contact) => contact.id === id); // Find the clicked contact
       if (clickedContact) clickedContact.visible = !clickedContact.visible; // Invert the visible value boolean on clicked contact
       this.isVisible(); // Call back isVisible function to re-define the currentMessageInfo variable
-      console.log(clickedContact);
+      this.searchInput = ""; // Clear search input field
     },
 
     // Define function to push in masseges array a new object
@@ -245,13 +245,15 @@ createApp({
     // Define a function to return contact based on search results
     getSearchResults() {
       // Validation input
-      if (this.searchInput.trim()) {
+      if (this.searchInput.toLowerCase().trim()) {
         // Get the result if searchResult is included in contacts name
         this.searchResults = this.contacts.filter(
-          (contact) => contact.name.includes(this.searchInput.trim()) // If searchResult is included in contacts name
+          (contact) =>
+            contact.name
+              .toLowerCase()
+              .includes(this.searchInput.toLowerCase().trim()) // If searchResult is included in contacts name
         );
       }
-      // this.contacts.forEach((contact) => (contact.visible = false)); // Flag Visible = fals after mount
     },
   },
 
