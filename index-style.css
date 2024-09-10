@@ -245,12 +245,31 @@ input{
 }
 
 .msg{
+    position: relative;
     margin-bottom: var(--margin-sm);
     padding: var(--padding-sm) 5px 2px var(--padding-sm);
-    box-shadow: 0 0 5px var(--message-box-shadow-col);
-    
+    box-shadow: 0 0 5px var(--message-box-shadow-col);   
 }
 
+.msg-chevron{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.fa-chevron-down{
+    display: none;
+    cursor: pointer;
+    font-size: var(--fs-md);
+}
+
+.msg:hover .fa-chevron-down{
+    display: block;
+}
+
+.delete-modal-msg{
+    display: none;
+}
 
 .msg.sent{
     border-radius: 10px 0 10px 10px;

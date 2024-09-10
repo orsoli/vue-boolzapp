@@ -107,13 +107,11 @@
                 <!-- Chat field header  -->
                 <header>
                     <!-- Header chat profile info  -->
-                    <div class="left-side">
-                        <img :src="contacts[activeIndex].avatar" :alt="'avatar-'+(activeIndex+1)" class="profile-img">
+                    <div class="left-side" v-for="(contact,i) in visibleContacts">
+                        <img :src="contact.avatar" :alt="'avatar-'+(i+1)" class="profile-img">
                         <div>
-                            <p> {{contacts[activeIndex].name}} </p>
-                            <p class="subinfo">Last seen at
-                                {{contacts[activeIndex].messages[contacts[activeIndex].messages.length-1].date}}
-                            </p>
+                            <p> {{contact.name}} </p>
+                            <p class="subinfo">Last seen at {{contact.messages[contact.messages.length-1].date}}
                         </div>
                     </div>
                     <!-- Header chat nav bar  -->
@@ -128,7 +126,14 @@
                 <div class="chat-body">
                     <ul>
                         <li class="msg" v-for="info in currentMessageInfo" :class="[info.status]">
-                            <p> {{info.message}} </p>
+                            <div class="msg-chevron">
+                                <p> {{info.message}} </p>
+                                <span><i class="fa-solid fa-chevron-down"></i></span>
+                                <div class="delete-modal-msg">
+                                    <h5>Message Info</h5>
+                                    <h5>Delete Message</h5>
+                                </div>
+                            </div>
                             <p class="time"> {{info.date}} </p>
                         </li>
                     </ul>

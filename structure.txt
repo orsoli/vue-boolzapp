@@ -106,5 +106,4 @@ Milestone 5 - Optional
 
 Delete message: clicking on a message shows a dropdown menu that allows deleting the selected message.
 Display the time and the last sent/received message in the contact list.
-
                             

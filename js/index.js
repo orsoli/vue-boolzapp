@@ -4,7 +4,6 @@ createApp({
   data() {
     return {
       // Variables
-      activeIndex: 0, // Initial active index value
       currentMessageInfo: null, // Current messages info variable
       sentMessage: "", // Save sent Message get from input
       searchInput: "", // Save search result
@@ -185,6 +184,10 @@ createApp({
 
   // Computed component
   computed: {
+    visibleContacts() {
+      return this.contacts.filter((contact) => contact.visible); // Filter method to return only visible contacts
+    },
+
     // Define a function to return contact based on search results
     getSearchResults() {
       // Validation input
@@ -201,10 +204,6 @@ createApp({
   },
   // Methods component
   methods: {
-    updateActiveIndex(i) {
-      this.activeIndex = i;
-    },
-
     // Get the current time from luxon
     getCurrentTime() {
       const DateTime = luxon.DateTime; // Current date and time
@@ -220,14 +219,12 @@ createApp({
     },
 
     // OnClick function
-    onClick(id, i) {
+    onClick(id) {
       this.contacts.forEach((contact) => (contact.visible = false)); // Change in false for all contact visible value befaore click
       const clickedContact = this.contacts.find((contact) => contact.id === id); // Find the clicked contact
       if (clickedContact) clickedContact.visible = !clickedContact.visible; // Invert the visible value boolean on clicked contact
       this.isVisible(); // Call back isVisible function to re-define the currentMessageInfo variable
       this.searchInput = ""; // Clear search input field
-      this.updateActiveIndex(i); // Update activeIndex
-      console.log(this.activeIndex); // Testing print in console
     },
 
     // Define function to push in masseges array a new object
