@@ -74,7 +74,7 @@
                 <div class="contacts-chat">
                     <!-- Chats list  -->
                     <ul v-if="searchInput">
-                        <li v-for="(contact,i) in searchResults" @click="onClick(contact.id)"
+                        <li v-for="(contact,i) in searchResults" @click="onClick(contact.id,i)"
                             :class="{active : contact.visible}" :data-id="contact.id">
                             <div class="left-side">
                                 <img :src="contact.avatar" :alt="'avatar-'+(i+1)" class="profile-img">
@@ -87,7 +87,7 @@
                         </li>
                     </ul>
                     <ul v-else>
-                        <li v-for="(contact,i) in contacts" @click="onClick(contact.id)"
+                        <li v-for="(contact,i) in contacts" @click="onClick(contact.id,i)"
                             :class="{active : contact.visible}">
                             <div class="left-side">
                                 <img :src="contact.avatar" :alt="'avatar-'+(i+1)" class="profile-img">
@@ -107,11 +107,12 @@
                 <!-- Chat field header  -->
                 <header>
                     <!-- Header chat profile info  -->
-                    <div class="left-side" v-for="(contact,i) in visibleContacts">
-                        <img :src="contact.avatar" :alt="'avatar-'+(i+1)" class="profile-img">
+                    <div class="left-side">
+                        <img :src="contacts[activeIndex].avatar" :alt="'avatar-'+(activeIndex+1)" class="profile-img">
                         <div>
-                            <p> {{contact.name}} </p>
-                            <p class="subinfo">Last seen at {{contact.messages[contact.messages.length-1].date}}
+                            <p> {{contacts[activeIndex].name}} </p>
+                            <p class="subinfo">Last seen at
+                                {{contacts[activeIndex].messages[contacts[activeIndex].messages.length-1].date}}
                             </p>
                         </div>
                     </div>
