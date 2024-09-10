@@ -239,8 +239,7 @@ createApp({
     },
     // Define function to push in masseges array a new object
     removeMessage(i) {
-      this.currentMessageInfo.splice(i, 1);
-      console.log(this.currentMessageInfo);
+      this.currentMessageInfo.splice(i, 1); // Remove 1 message start from index
     },
 
     onSentMessage() {
