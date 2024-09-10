@@ -200,6 +200,12 @@ input{
 }
 
 /* Chat field  */
+.chat-initial{
+    width: 70%;
+    height: 100%;
+    background-image: url('img/image-chat.webp');
+    background-size: cover;
+}
 .chat-field{
     display: flex;
     flex-direction: column;

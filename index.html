@@ -67,13 +67,28 @@
                 <!-- Search chats contact  -->
                 <div class="search-chats">
                     <i class="fas fa-search"></i>
-                    <input type="search" placeholder="Search or start a new chat.">
+                    <input type="search" placeholder="Search or start a new chat." v-model="searchInput"
+                        @keyup="getSearchResults">
                 </div>
                 <!-- Contact chats field  -->
                 <div class="contacts-chat">
                     <!-- Chats list  -->
-                    <ul>
-                        <li v-for="(contact,i) in contacts" @click="onClick(i)" :class="{active : contact.visible}">
+                    <ul v-if="searchInput">
+                        <li v-for="(contact,i) in searchResults" @click="onClick(contact.id)"
+                            :class="{active : contact.visible}" :data-id="contact.id">
+                            <div class="left-side">
+                                <img :src="contact.avatar" :alt="'avatar-'+(i+1)" class="profile-img">
+                                <div>
+                                    <p> {{contact.name}} </p>
+                                    <p class="subinfo"> {{contact.messages[contact.messages.length-1].message}} </p>
+                                </div>
+                            </div>
+                            <p class="subinfo">{{contact.messages[contact.messages.length-1].date}}</p>
+                        </li>
+                    </ul>
+                    <ul v-else>
+                        <li v-for="(contact,i) in contacts" @click="onClick(contact.id)"
+                            :class="{active : contact.visible}">
                             <div class="left-side">
                                 <img :src="contact.avatar" :alt="'avatar-'+(i+1)" class="profile-img">
                                 <div>
@@ -86,8 +101,10 @@
                     </ul>
                 </div>
             </aside>
+            <div class="chat-initial" v-if="!currentMessageInfo">
+            </div>
             <!-- Chat field  -->
-            <div class="chat-field">
+            <div class="chat-field" v-else>
                 <!-- Chat field header  -->
                 <header>
                     <!-- Header chat profile info  -->

@@ -6,6 +6,9 @@ createApp({
       // Variables
       currentMessageInfo: null, // Current messages info variable
       sentMessage: "", // Save sent Message get from input
+      searchInput: "", // Save search result
+      searchResults: null, // Save search result
+
       // Save auto recieve message
       receivedMessage: {
         date: this.getCurrentTime(),
@@ -202,10 +205,12 @@ createApp({
     },
 
     // OnClick function
-    onClick(i) {
+    onClick(id) {
       this.contacts.forEach((contact) => (contact.visible = false)); // Change in false for all contact visible value befaore click
-      this.contacts[i].visible = !this.contacts[i].visible; // Invert the visible value boolean
+      const clickedContact = this.contacts.find((contact) => contact.id === id); // Find the clicked contact
+      if (clickedContact) clickedContact.visible = !clickedContact.visible; // Invert the visible value boolean on clicked contact
       this.isVisible(); // Call back isVisible function to re-define the currentMessageInfo variable
+      console.log(clickedContact);
     },
 
     // Define function to push in masseges array a new object
@@ -220,30 +225,44 @@ createApp({
 
     onSentMessage() {
       // Validation condition
-      if (this.sentMessage) {
+      if (this.sentMessage.trim()) {
         // Call back addMessage function to add sent message
         this.addMessage({
           date: this.getCurrentTime(),
           message: this.sentMessage, // Geting new sent message
           status: "sent",
         });
+        // Define a timeout function to receive a message in 1 sec delay
+        setTimeout(() => {
+          // Call back addMessage function to add sent message
+          this.addMessage(this.receivedMessage);
+        }, 1000);
       }
 
       this.sentMessage = ""; // Clear input message
+    },
 
-      // Define a timeout function to receive a message in 1 sec delay
-      setTimeout(() => {
-        console.log(this.receivedMessage); // Testing print
-        // Call back addMessage function to add sent message
-        this.addMessage(this.receivedMessage);
-      }, 1000);
+    // Define a function to return contact based on search results
+    getSearchResults() {
+      // Validation input
+      if (this.searchInput.trim()) {
+        // Get the result if searchResult is included in contacts name
+        this.searchResults = this.contacts.filter(
+          (contact) => contact.name.includes(this.searchInput.trim()) // If searchResult is included in contacts name
+        );
+      }
+      // this.contacts.forEach((contact) => (contact.visible = false)); // Flag Visible = fals after mount
     },
   },
 
   // Use mounted lifecycle hook
   mounted() {
-    const contactsNoFirst = this.contacts.slice(1, this.contacts.length); // Create a copy of contacts excluded the first contact
-    contactsNoFirst.forEach((contact) => (contact.visible = false)); // Flag Visible = fals after mount
+    // Add unic `id` for each contacts
+    this.contacts = this.contacts.map((contact, i) => ({
+      ...contact,
+      id: i + 1,
+    }));
+    this.contacts.forEach((contact) => (contact.visible = false)); // Flag Visible = fals after mount
     this.isVisible(); // Call the isVisible function to re-define the current message
   },
 }).mount("#app");

@@ -95,6 +95,11 @@ Milestone 4
 User search: by typing something in the input on the left, only the contacts whose name contains the entered 
 letters are displayed (e.g., Marco, Matteo, Martina -> type "mar", only Marco and Martina remain).
 
+    --- Add for each conctact a unic 'id' to find the clicked contact using id and not index
+    1. Create searchResult variable to save search chats input value
+    2. Define a function to pass in each name of contacts and check if search result is included in search result
+    3. Modification in DOM add ul element in chat contacts section and it show based in condition input
+
 
 
 Milestone 5 - Optional
