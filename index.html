@@ -125,13 +125,14 @@
                 <!-- Chat body  -->
                 <div class="chat-body">
                     <ul>
-                        <li class="msg" v-for="info in currentMessageInfo" :class="[info.status]">
+                        <li class="msg" v-for="(info,i) in currentMessageInfo" :class="[info.status]">
                             <div class="msg-chevron">
                                 <p> {{info.message}} </p>
-                                <span><i class="fa-solid fa-chevron-down"></i></span>
-                                <div class="delete-modal-msg">
-                                    <h5>Message Info</h5>
-                                    <h5>Delete Message</h5>
+                                <span><i class="fa-solid fa-chevron-down" @click="showDeleteModal(i)"></i></span>
+                                <div class="delete-modal-msg"
+                                    :style="{display: infoMsgActiveIndex === i ? 'block' : 'none'}">
+                                    <p>Message Info</p>
+                                    <p @click="deleteMessage(i)">Delete Message</p>
                                 </div>
                             </div>
                             <p class="time"> {{info.date}} </p>

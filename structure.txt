@@ -107,3 +107,8 @@ Milestone 5 - Optional
 Delete message: clicking on a message shows a dropdown menu that allows deleting the selected message.
 Display the time and the last sent/received message in the contact list.
                             
+    1. Prepare Html structure  and Css style
+    2. Create a flag using for delete modal
+    3. Create function in chevron click event which ivert the flag value
+    4. In chevondown icon in  DOM @click event call function to invert the flag
+    5. In modal element in style toggle the display-none based on flag

@@ -267,8 +267,28 @@ input{
     display: block;
 }
 
+.delete-modal-msg p{
+    cursor: pointer;
+    font-size: 16px;
+    padding: var(--padding-sm);
+}
+
 .delete-modal-msg{
-    display: none;
+    min-width: 200px;
+    min-height: 100px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px black;
+    padding: var(--padding-lg);
+    position: absolute;
+    top: 60%;
+    right: 0;
+    z-index: 1;
+}
+
+.received .delete-modal-msg{
+    left: 0;
+
 }
 
 .msg.sent{

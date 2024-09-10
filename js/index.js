@@ -8,13 +8,14 @@ createApp({
       sentMessage: "", // Save sent Message get from input
       searchInput: "", // Save search result
       searchResults: null, // Save search result
-
       // Save auto recieve message
       receivedMessage: {
         date: this.getCurrentTime(),
         message: "ok", // Geting new sent message
         status: "received",
       },
+
+      infoMsgActiveIndex: null, // Initial value for msg
 
       contacts: [
         {
@@ -236,6 +237,11 @@ createApp({
           contact.messages.push(object);
       });
     },
+    // Define function to push in masseges array a new object
+    removeMessage(i) {
+      this.currentMessageInfo.splice(i, 1);
+      console.log(this.currentMessageInfo);
+    },
 
     onSentMessage() {
       // Validation condition
@@ -254,6 +260,17 @@ createApp({
       }
 
       this.sentMessage = ""; // Clear input message
+    },
+
+    // Define a function to change the flag value
+    showDeleteModal(i) {
+      this.infoMsgActiveIndex = i; // Update the infoMsgActiveIndex
+      console.log(this.infoMsgActiveIndex);
+    },
+
+    deleteMessage(i) {
+      this.removeMessage(i); // Call back remove function
+      this.infoMsgActiveIndex = null; // Udate infoMsgIndex
     },
   },
 
